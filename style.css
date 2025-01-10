@@ -1,0 +1,956 @@
+@charset "UTF-8";
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@font-face {
+  font-family: "hyundainormal";
+  src: url("./font/hyundainormal.ttf");
+}
+html {
+  font-size: 10px;
+}
+
+body {
+  font: 400 1.6rem/1 "Noto Sans KR", sans-serif;
+  letter-spacing: -1px;
+  color: #222;
+  background: #fff;
+  min-width: 1450px;
+}
+body header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 0 10px #ddd;
+}
+body header .header_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+}
+body header .header_inner #logo {
+  width: 160px;
+}
+body header .header_inner .gnb ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+body header .header_inner .gnb ul li a {
+  font: 300 1.4rem/1 "hyundainormal", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  position: relative;
+  color: #002d74;
+  transition: all 0.3s;
+}
+body header .header_inner .gnb ul li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: #01a251;
+  transition: all 0.3s;
+}
+body header .header_inner .gnb ul li a:hover {
+  color: #01a251;
+}
+body header .header_inner .gnb ul li a:hover::after {
+  width: 100%;
+}
+body header .header_inner .trigger {
+  display: none;
+}
+body .content {
+  width: 100%;
+  min-width: 1200px;
+  height: calc(100% - 70px);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+}
+
+.home_inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #002d74;
+}
+.home_inner svg {
+  position: absolute;
+  width: 30vw;
+}
+.home_inner svg.home_svg01 {
+  width: 45vw;
+  bottom: -5%;
+  left: -10%;
+}
+.home_inner svg.home_svg02 {
+  width: 33vw;
+  bottom: -5%;
+  left: 18%;
+  animation-delay: 1s;
+}
+.home_inner svg.home_svg03 {
+  width: 27vw;
+  bottom: -5%;
+  left: 45%;
+  animation-delay: 2s;
+}
+.home_inner svg.home_svg04 {
+  width: 26vw;
+  bottom: -15%;
+  left: 65%;
+  animation-delay: 3s;
+}
+.home_inner h1 {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  font: 300 6rem/1 "hyundainormal", sans-serif;
+  letter-spacing: 3px;
+  color: #f0f0f0;
+  opacity: 0;
+}
+.home_inner p {
+  position: absolute;
+  top: 140px;
+  right: 50px;
+  text-align: end;
+  font: 400 2rem/1.4 "Noto Sans KR", sans-serif;
+  color: #fff;
+  width: 40%;
+  word-break: keep-all;
+  color: #ddd;
+  opacity: 0;
+}
+
+.about_inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+.about_inner .about_heading {
+  text-align: center;
+}
+.about_inner .about_heading h2 {
+  font: 700 4rem/1 "Noto Sans KR", sans-serif;
+  color: #002d74;
+  margin-bottom: 20px;
+}
+.about_inner .about_heading p {
+  font: 400 2rem/1.4 "Noto Sans KR", sans-serif;
+}
+.about_inner .count_wrap {
+  display: flex;
+  gap: 150px;
+}
+.about_inner .count_wrap li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+.about_inner .count_wrap li .icon {
+  position: relative;
+}
+.about_inner .count_wrap li .icon span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  font: 600 1.6rem/1.2 "Noto Sans KR", sans-serif;
+  color: #01a251;
+  opacity: 0;
+  transition: all 1s;
+}
+.about_inner .count_wrap li .icon img {
+  width: 160px;
+  height: 160px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: all 1s;
+}
+.about_inner .count_wrap li .icon.active img {
+  transform: translateY(0);
+  opacity: 1;
+}
+.about_inner .count_wrap li .icon.active span {
+  opacity: 1;
+}
+.about_inner .count_wrap li .count {
+  font: 600 5rem/1 "Noto Sans KR", sans-serif;
+  color: #01a251;
+}
+.about_inner .count_wrap li .count::after {
+  font-size: 1.6rem;
+  color: #6d6d6d;
+  margin-left: 5px;
+}
+.about_inner .count_wrap li:nth-child(1) .count::after {
+  content: "주년";
+}
+.about_inner .count_wrap li:nth-child(2) .count::after {
+  content: "개국";
+}
+.about_inner .count_wrap li:nth-child(3) .count::after {
+  content: "건";
+}
+.about_inner .count_wrap li:nth-child(4) .count::after {
+  content: "년 연속";
+}
+.about_inner .count_wrap li:nth-child(2) .icon.active img {
+  transition-delay: 0.2s;
+}
+.about_inner .count_wrap li:nth-child(2) .icon.active span {
+  transition-delay: 0.2s;
+}
+.about_inner .count_wrap li:nth-child(3) .icon.active img {
+  transition-delay: 0.4s;
+}
+.about_inner .count_wrap li:nth-child(3) .icon.active span {
+  transition-delay: 0.4s;
+}
+.about_inner .count_wrap li:nth-child(4) .icon.active img {
+  transition-delay: 0.6s;
+}
+.about_inner .count_wrap li:nth-child(4) .icon.active span {
+  transition-delay: 0.6s;
+}
+
+.project_inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+.project_inner input[name=tabmenu] {
+  display: none;
+}
+.project_inner input[id=tab1]:checked ~ .tabs {
+  margin-left: 0;
+}
+.project_inner input[id=tab2]:checked ~ .tabs {
+  margin-left: -100%;
+}
+.project_inner input[id=tab3]:checked ~ .tabs {
+  margin-left: -200%;
+}
+.project_inner .tabs {
+  width: 300%;
+  height: 100%;
+  transition: all 0.5s;
+  display: flex;
+}
+.project_inner .tabs .tab {
+  width: 33.3333333333%;
+  height: 100%;
+  display: flex;
+}
+.project_inner .tabs .tab > div {
+  height: 100%;
+}
+.project_inner .tabs .tab > div.project_info {
+  width: 500px;
+  padding: 50px;
+  position: relative;
+}
+.project_inner .tabs .tab > div.project_info::before {
+  content: attr(data-text);
+  font-size: 130px;
+  font-weight: 900;
+  letter-spacing: -10px;
+  color: #ddd;
+  opacity: 0.5;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+.project_inner .tabs .tab > div.project_info h3 {
+  font: 600 2.2rem/1 "Noto Sans KR", sans-serif;
+  position: relative;
+}
+.project_inner .tabs .tab > div.project_info p {
+  margin: 50px 0 30px;
+  font: 400 1.6rem/1.5 "Noto Sans KR", sans-serif;
+  word-break: keep-all;
+  position: relative;
+}
+.project_inner .tabs .tab > div.project_info ul {
+  font: 400 1.6rem/4rem "Noto Sans KR", sans-serif;
+}
+.project_inner .tabs .tab > div.project_info ul li::before {
+  content: "\f0da";
+  margin-right: 10px;
+  font: normal 1.8rem/1 "fontawesome";
+  color: #01a251;
+}
+.project_inner .tabs .tab > div.project_info ul li b {
+  color: #6d6d6d;
+  font: 700 1.8rem/1 "Noto Sans KR", sans-serif;
+}
+.project_inner .tabs .tab > div.project_info .hashtag {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 20px 0 40px;
+}
+.project_inner .tabs .tab > div.project_info .hashtag span {
+  font: 500 1.6rem/1.5 "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  color: #01a251;
+}
+.project_inner .tabs .tab > div.project_info .view_project {
+  background: #6d6d6d;
+  color: #fff;
+  padding: 10px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  font: 600 1.6rem/1 "Ubuntu", sans-serif;
+  letter-spacing: 1px;
+}
+.project_inner .tabs .tab > div.project_info .view_project:hover {
+  background: #f5af1a;
+}
+.project_inner .tabs .tab > div.project_photo {
+  width: calc(100% - 500px);
+  height: 75%;
+}
+.project_inner .tabs .tab > div.project_photo .slick-list {
+  height: 100%;
+}
+.project_inner .tabs .tab > div.project_photo .slick-list .slick-track {
+  height: 100%;
+}
+.project_inner .tabs .tab > div.project_photo .slick-list .slick-track .slick-slide {
+  height: 100%;
+}
+.project_inner .tabs .tab > div.project_photo .slick-list .slick-track .slick-slide div {
+  height: 100%;
+}
+.project_inner .tabs .tab > div.project_photo .slick-list .slick-track .slick-slide div img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.project_inner .btn {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 25%;
+  text-align: center;
+  cursor: default;
+}
+.project_inner .btn label {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #6d6d6d;
+  border-radius: 50%;
+  margin: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.project_inner .btn label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s;
+}
+.project_inner .btn label:hover {
+  background: #01a251;
+}
+.project_inner .btn label:hover::before {
+  border: 1px solid #ddd;
+}
+.project_inner .message {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+}
+.project_inner .message span {
+  font: 400 4rem/1 "hyundainormal", sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  color: #ddd;
+}
+
+.news_inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+}
+.news_inner h3 {
+  font: 500 3.6rem/1 "hyundainormal", sans-serif;
+  text-align: center;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.news_inner h3 span {
+  font: 900 3.8rem/1 "arial", sans-serif;
+}
+.news_inner .news_items {
+  height: 78%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(350px, 1fr));
+  gap: 20px;
+}
+.news_inner .news_items li {
+  width: 350px;
+  height: 400px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.news_inner .news_items li .news_img {
+  height: 60%;
+  overflow: hidden;
+}
+.news_inner .news_items li .news_img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.5s;
+}
+.news_inner .news_items li .news_info {
+  height: 40%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.news_inner .news_items li .news_info .title {
+  font: 300 2.2rem/1.2 "Noto Sans KR", sans-serif;
+  height: 53px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.news_inner .news_items li .news_info .hashtag {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  height: 24px;
+  overflow: hidden;
+}
+.news_inner .news_items li .news_info .hashtag span {
+  font: 500 1.6rem/1.5 "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  color: #01a251;
+}
+.news_inner .news_items li .news_info .date {
+  text-align: end;
+  color: #6d6d6d;
+  font: 300 1.8rem/1 "Ubuntu", sans-serif;
+}
+.news_inner .news_items li:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+.news_inner .news_items li:hover .news_img img {
+  transform: scale(1.03);
+}
+.news_inner .news_items li:nth-child(2) {
+  transform: translateY(-10%);
+}
+.news_inner .news_items li:nth-child(5) {
+  transform: translateY(-10%);
+}
+.news_inner .news_detail {
+  width: 90vw;
+  min-width: 1200px;
+  height: 80vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  padding: 40px;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.6s;
+  z-index: 1;
+  background: #fff;
+}
+.news_inner .news_detail .detail_wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.news_inner .news_detail .detail_wrap .detail_left {
+  flex: 2;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.news_inner .news_detail .detail_wrap .detail_left .detail_img {
+  width: 100%;
+}
+.news_inner .news_detail .detail_wrap .detail_left .detail_img img {
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 20px;
+}
+.news_inner .news_detail .detail_wrap .detail_left .detail_img .hashtag {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: center;
+  gap: 10px;
+}
+.news_inner .news_detail .detail_wrap .detail_left .detail_img .hashtag span {
+  font: 500 1.6rem/1.5 "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  color: #01a251;
+}
+.news_inner .news_detail .detail_wrap .detail_left .closeBtn {
+  border: none;
+  width: 100%;
+  padding: 12px 0;
+  font: 500 2rem/1.2 "Noto Sans KR", sans-serif;
+  background: #01a251;
+  color: #fff;
+  box-shadow: 0 0 10px #ddd;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.news_inner .news_detail .detail_wrap .detail_left .closeBtn:hover {
+  background: #f5af1a;
+}
+.news_inner .news_detail .detail_wrap .detail_right {
+  flex: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.news_inner .news_detail .detail_wrap .detail_right .detail_heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.news_inner .news_detail .detail_wrap .detail_right .detail_heading .title {
+  font: 400 2.6rem/1.2 "Noto Sans KR", sans-serif;
+  text-align: center;
+  word-break: keep-all;
+}
+.news_inner .news_detail .detail_wrap .detail_right .detail_heading .date {
+  text-align: end;
+  color: #6d6d6d;
+  font: 300 1.8rem/1 "Ubuntu", sans-serif;
+}
+.news_inner .news_detail .detail_wrap .detail_right .text {
+  overflow-y: auto;
+  font: 400 1.8rem/1.4 "Noto Sans KR", sans-serif;
+}
+.news_inner .news_detail .detail_wrap .detail_right .text::-webkit-scrollbar {
+  display: none;
+}
+.news_inner .news_detail .detail_wrap .detail_right .text::-webkit-scrollbar-thumb {
+  display: none;
+}
+.news_inner .news_detail.active {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.news_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 0;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: all 0.6s;
+  cursor: pointer;
+}
+.news_overlay.active {
+  opacity: 1;
+  height: 100vh;
+}
+
+.contact_inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact_inner .contact_feature {
+  width: 70%;
+  display: flex;
+  gap: 50px;
+}
+.contact_inner .contact_feature > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.contact_inner .contact_feature > div.contact_form h3 {
+  font: 300 3rem/1 "Ubuntu", sans-serif;
+  color: #002d74;
+  letter-spacing: 0;
+}
+.contact_inner .contact_feature > div.contact_form p {
+  font: 500 1.8rem/1.4 "Noto Sans KR", sans-serif;
+  color: #6d6d6d;
+}
+.contact_inner .contact_feature > div.contact_form .send_box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+.contact_inner .contact_feature > div.contact_form .send_box label {
+  font: 500 1.6rem/1.4 "Noto Sans KR", sans-serif;
+}
+.contact_inner .contact_feature > div.contact_form .send_box label span {
+  color: crimson;
+  font-weight: normal;
+}
+.contact_inner .contact_feature > div.contact_form .send_box input[type=email],
+.contact_inner .contact_feature > div.contact_form .send_box input[type=text],
+.contact_inner .contact_feature > div.contact_form .send_box textarea {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 12px;
+  transition: all 0.3s;
+}
+.contact_inner .contact_feature > div.contact_form .send_box input[type=email]::-moz-placeholder, .contact_inner .contact_feature > div.contact_form .send_box input[type=text]::-moz-placeholder, .contact_inner .contact_feature > div.contact_form .send_box textarea::-moz-placeholder {
+  font: 400 1.6rem/1 "Noto Sans KR", sans-serif;
+  letter-spacing: -1px;
+  opacity: 1;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.contact_inner .contact_feature > div.contact_form .send_box input[type=email]::placeholder,
+.contact_inner .contact_feature > div.contact_form .send_box input[type=text]::placeholder,
+.contact_inner .contact_feature > div.contact_form .send_box textarea::placeholder {
+  font: 400 1.6rem/1 "Noto Sans KR", sans-serif;
+  letter-spacing: -1px;
+  opacity: 1;
+  transition: all 0.3s;
+}
+.contact_inner .contact_feature > div.contact_form .send_box input[type=email]:focus,
+.contact_inner .contact_feature > div.contact_form .send_box input[type=text]:focus,
+.contact_inner .contact_feature > div.contact_form .send_box textarea:focus {
+  outline: none;
+  border: 1px solid #01a251;
+}
+.contact_inner .contact_feature > div.contact_form .send_box input[type=email]:focus::-moz-placeholder, .contact_inner .contact_feature > div.contact_form .send_box input[type=text]:focus::-moz-placeholder, .contact_inner .contact_feature > div.contact_form .send_box textarea:focus::-moz-placeholder {
+  opacity: 0;
+}
+.contact_inner .contact_feature > div.contact_form .send_box input[type=email]:focus::placeholder,
+.contact_inner .contact_feature > div.contact_form .send_box input[type=text]:focus::placeholder,
+.contact_inner .contact_feature > div.contact_form .send_box textarea:focus::placeholder {
+  opacity: 0;
+}
+.contact_inner .contact_feature > div.contact_form .send_box textarea {
+  resize: none;
+}
+.contact_inner .contact_feature > div.contact_form .send_box input[type=submit] {
+  background: #6d6d6d;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 10px;
+  width: 60%;
+  justify-content: flex-start;
+  font: 500 1.8rem/1.4 "Noto Sans KR", sans-serif;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.contact_inner .contact_feature > div.contact_form .send_box input[type=submit].on {
+  background: #01a251;
+}
+.contact_inner .contact_feature > div.contact_info {
+  gap: 40px;
+}
+.contact_inner .contact_feature > div.contact_info h4 {
+  font: 400 2rem/1 "Ubuntu", sans-serif;
+  color: #002d74;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+}
+.contact_inner .contact_feature > div.contact_info ul li {
+  margin: 10px 0;
+  color: #6d6d6d;
+}
+.contact_inner .contact_feature > div.contact_info p {
+  margin: 10px 0;
+  color: #6d6d6d;
+}
+.contact_inner .contact_feature > div.contact_info p .fa-regular {
+  margin-right: 6px;
+}
+.contact_inner .contact_feature > div.contact_info em {
+  font: normal 400 1.4rem/1 "Ubuntu", sans-serif;
+  letter-spacing: 0;
+  color: #6d6d6d;
+}
+.contact_inner .contact_feature > div.contact_info em span {
+  color: #01a251;
+}
+
+.modal .header {
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 100;
+  border-bottom: 1px solid #ddd;
+}
+.modal .header .header-inner {
+  width: 95%;
+  height: 90px;
+  margin: 0 auto;
+  line-height: 90px;
+}
+.modal .header .header-inner .modal-display {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.modal .header .header-inner .modal-display::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ddd;
+}
+.modal .hiring-main {
+  height: 600px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.modal .hiring-main.project-main1 {
+  background: url("./images/project01-main.jpg") center/cover no-repeat;
+  height: 100vh;
+}
+.modal .hiring-main.project-main2 {
+  background: url("./images/project02-main.jpg") center/cover no-repeat;
+  height: 100vh;
+}
+.modal .hiring-main.project-main3 {
+  background: url("./images/project03-sub01.jpg") center/cover no-repeat;
+  height: 100vh;
+}
+.modal .hiring-main .hiring-heading {
+  color: #fff;
+}
+.modal .hiring-main .hiring-heading span {
+  font: 600 2rem/1 "Ubuntu", sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #6d6d6d;
+}
+.modal .hiring-main .hiring-heading h1 {
+  font: 200 4rem/1.5 "hyundainormal", sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #6d6d6d;
+}
+.modal .hiring-info {
+  display: flex;
+}
+.modal .hiring-info > div {
+  flex: 1;
+  height: 500px;
+}
+.modal .hiring-info > div.center-parent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .hiring-info > div.center-parent .center-child {
+  width: 70%;
+}
+.modal .hiring-info > div.center-parent .center-child h2 {
+  font: 200 3rem/1.5 "Noto Sans KR", sans-serif;
+  position: relative;
+  margin-bottom: 20px;
+}
+.modal .hiring-info > div.center-parent .center-child h2::before {
+  content: "\f0da";
+  font: normal 3.8rem/1 "fontawesome";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  color: #f5af1a;
+  transform: rotate(-90deg);
+}
+.modal .hiring-info > div.center-parent .center-child h2::after {
+  content: "\f0da";
+  font: normal 3.8rem/1 "fontawesome";
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  color: #01a251;
+  transform: rotate(-90deg);
+}
+.modal .hiring-info > div.center-parent .center-child p {
+  font: 400 1.6rem/1.8 "Noto Sans KR", sans-serif;
+  word-break: keep-all;
+}
+.modal .hiring-info > div.photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.modal .hiring-info > div.photo.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.modal .hiring-info > div.photo.project-info ul li {
+  font: 200 2rem/1.5 "Noto Sans KR", sans-serif;
+  margin: 10px 0;
+}
+.modal .hiring-info > div.photo.project-info ul li::before {
+  content: "\f0da";
+  margin-right: 10px;
+  font: normal 2rem/1 "fontawesome";
+  color: #ddd;
+}
+.modal .hiring-info > div.photo.project-info ul li b {
+  color: #6d6d6d;
+  font: 400 2rem/1 "Noto Sans KR", sans-serif;
+  letter-spacing: 2px;
+}
+.modal .hiring-info > div.photo.project-info .hashtag {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.modal .hiring-info > div.photo.project-info .hashtag span {
+  font: 500 1.6rem/1.5 "Noto Sans KR", sans-serif;
+  font-weight: bold;
+  color: #01a251;
+}
+.modal .hiring-info > div.photo.project-info .hashtag span {
+  font: 500 2.2rem/1 "Noto Sans KR", sans-serif;
+  color: #ddd;
+}
+.modal .hiring-info:nth-of-type(3) {
+  flex-direction: row-reverse;
+}
+.modal .hiring-info:nth-of-type(3) .center-parent .center-child p {
+  text-align: end;
+}
+.modal .hiring-slogan {
+  padding: 120px 0;
+}
+.modal .hiring-slogan p {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  font: italic 300 3.2rem/1.5 "Ubuntu", sans-serif;
+  letter-spacing: 2px;
+  color: #ddd;
+  word-break: keep-all;
+}
+.modal .hiring-slogan p::before {
+  content: ",,";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-100%, -40%) rotate(180deg);
+  font-size: 200px;
+  color: #ddd;
+  z-index: 0;
+  font-family: "arial";
+  letter-spacing: -10px;
+}
+.modal .hiring-slogan p::after {
+  content: ",,";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(100%, 40%) rotate(-360deg);
+  font-size: 200px;
+  color: #ddd;
+  z-index: 0;
+  font-family: "arial";
+  letter-spacing: -10px;
+}
+
+.featherlight .featherlight-content {
+  width: 100%;
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  max-height: 100%;
+}
+.featherlight .featherlight-content .featherlight-close-icon {
+  top: 30px;
+  right: 60px;
+  font-size: 40px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #6d6d6d;
+}
+.featherlight .featherlight-content iframe {
+  width: 100%;
+  height: 100%;
+}

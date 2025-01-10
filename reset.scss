@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+// input{
+//   border: 1px solid $main-item-border;
+//   border-radius: 3px;
+//   padding: 10px;
+//   transition: all 0.3s;
+//   &:focus {
+//     outline: none;
+//     border: 1px solid $main-blue-color;
+//     box-shadow: 0 0 5px $main-item-border;
+//   }
+// }

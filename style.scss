@@ -1,0 +1,987 @@
+// reset
+@import "./reset.css";
+
+// font
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+// font-family: "Ubuntu", sans-serif;
+// font-family: "Noto Sans KR", sans-serif;
+@font-face {
+  font-family: "hyundainormal";
+  src: url("./font/hyundainormal.ttf");
+}
+
+// variable
+$main-font-color: #222;
+$main-light-bg: #fff;
+$main-light-gray: #ddd;
+$main-dark-gray: #6d6d6d;
+$main-green-color: #01a251;
+$main-orange-color: #f5af1a;
+$main-navy-color: #002d74;
+
+@mixin hashtag {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  span {
+    font: 500 1.6rem/1.5 "Noto Sans KR", sans-serif;
+    font-weight: bold;
+    color: $main-green-color;
+  }
+}
+@mixin formStyle {
+  border: 1px solid $main-light-gray;
+  border-radius: 3px;
+  padding: 12px;
+  transition: all 0.3s;
+  &::placeholder {
+    font: 400 1.6rem/1 "Noto Sans KR", sans-serif;
+    letter-spacing: -1px;
+    opacity: 1;
+    transition: all 0.3s;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid $main-green-color;
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
+
+// common
+html {
+  font-size: 10px;
+}
+body {
+  font: 400 1.6rem/1 "Noto Sans KR", sans-serif;
+  letter-spacing: -1px;
+  color: $main-font-color;
+  background: $main-light-bg;
+  min-width: 1450px;
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background: $main-light-bg;
+    box-shadow: 0 0 10px $main-light-gray;
+    .header_inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 70px;
+      padding: 0 20px;
+      #logo {
+        width: 160px;
+      }
+      .gnb {
+        ul {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          li {
+            a {
+              font: 300 1.4rem/1 "hyundainormal", sans-serif;
+              text-transform: uppercase;
+              letter-spacing: 0;
+              position: relative;
+              color: $main-navy-color;
+              transition: all 0.3s;
+              &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -5px;
+                transform: translateX(-50%);
+                width: 0;
+                height: 1px;
+                background: $main-green-color;
+                transition: all 0.3s;
+              }
+              &:hover {
+                color: $main-green-color;
+                &::after {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .trigger {
+        display: none;
+      }
+    }
+  }
+  .content {
+    width: 100%;
+    min-width: 1200px;
+    height: calc(100% - 70px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+  }
+}
+
+// home
+.home_inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: $main-navy-color;
+  svg {
+    position: absolute;
+    width: 30vw;
+    &.home_svg01 {
+      width: 45vw;
+      bottom: -5%;
+      left: -10%;
+    }
+    &.home_svg02 {
+      width: 33vw;
+      bottom: -5%;
+      left: 18%;
+      animation-delay: 1s;
+    }
+    &.home_svg03 {
+      width: 27vw;
+      bottom: -5%;
+      left: 45%;
+      animation-delay: 2s;
+    }
+    &.home_svg04 {
+      width: 26vw;
+      bottom: -15%;
+      left: 65%;
+      animation-delay: 3s;
+    }
+  }
+  h1 {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    font: 300 6rem/1 "hyundainormal", sans-serif;
+    letter-spacing: 3px;
+    color: #f0f0f0;
+    opacity: 0;
+  }
+  p {
+    position: absolute;
+    top: 140px;
+    right: 50px;
+    text-align: end;
+    font: 400 2rem/1.4 "Noto Sans KR", sans-serif;
+    color: $main-light-bg;
+    width: 40%;
+    word-break: keep-all;
+    color: #ddd;
+    opacity: 0;
+  }
+}
+
+// about
+.about_inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  .about_heading {
+    text-align: center;
+    h2 {
+      font: 700 4rem/1 "Noto Sans KR", sans-serif;
+      color: $main-navy-color;
+      margin-bottom: 20px;
+    }
+    p {
+      font: 400 2rem/1.4 "Noto Sans KR", sans-serif;
+    }
+  }
+  .count_wrap {
+    display: flex;
+    gap: 150px;
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+      .icon {
+        position: relative;
+        span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translateX(-100%);
+          font: 600 1.6rem/1.2 "Noto Sans KR", sans-serif;
+          color: $main-green-color;
+          opacity: 0;
+          transition: all 1s;
+        }
+        img {
+          width: 160px;
+          height: 160px;
+          object-fit: contain;
+          transform: translateY(50%);
+          opacity: 0;
+          transition: all 1s;
+        }
+        &.active {
+          img {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          span {
+            opacity: 1;
+          }
+        }
+      }
+      .count {
+        font: 600 5rem/1 "Noto Sans KR", sans-serif;
+        color: $main-green-color;
+        &::after {
+          font-size: 1.6rem;
+          color: $main-dark-gray;
+          margin-left: 5px;
+        }
+      }
+      &:nth-child(1) .count::after {
+        content: "주년";
+      }
+      &:nth-child(2) .count::after {
+        content: "개국";
+      }
+      &:nth-child(3) .count::after {
+        content: "건";
+      }
+      &:nth-child(4) .count::after {
+        content: "년 연속";
+      }
+      &:nth-child(2) {
+        .icon.active {
+          img {
+            transition-delay: 0.2s;
+          }
+          span {
+            transition-delay: 0.2s;
+          }
+        }
+      }
+      &:nth-child(3) {
+        .icon.active {
+          img {
+            transition-delay: 0.4s;
+          }
+          span {
+            transition-delay: 0.4s;
+          }
+        }
+      }
+      &:nth-child(4) {
+        .icon.active {
+          img {
+            transition-delay: 0.6s;
+          }
+          span {
+            transition-delay: 0.6s;
+          }
+        }
+      }
+    }
+  }
+}
+
+// project
+.project_inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: $main-light-bg;
+  position: relative;
+  input[name="tabmenu"] {
+    display: none;
+  }
+  input[id="tab1"]:checked ~ .tabs {
+    margin-left: 0;
+  }
+  input[id="tab2"]:checked ~ .tabs {
+    margin-left: -100%;
+  }
+  input[id="tab3"]:checked ~ .tabs {
+    margin-left: -200%;
+  }
+  .tabs {
+    width: 300%;
+    height: 100%;
+    transition: all 0.5s;
+    display: flex;
+    .tab {
+      width: calc(100% / 3);
+      height: 100%;
+      display: flex;
+      & > div {
+        height: 100%;
+        &.project_info {
+          width: 500px;
+          padding: 50px;
+          position: relative;
+          &::before {
+            content: attr(data-text);
+            font-size: 130px;
+            font-weight: 900;
+            letter-spacing: -10px;
+            color: $main-light-gray;
+            opacity: 0.5;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+          }
+          h3 {
+            font: 600 2.2rem/1 "Noto Sans KR", sans-serif;
+            position: relative;
+          }
+          p {
+            margin: 50px 0 30px;
+            font: 400 1.6rem/1.5 "Noto Sans KR", sans-serif;
+            word-break: keep-all;
+            position: relative;
+          }
+          ul {
+            font: 400 1.6rem/4rem "Noto Sans KR", sans-serif;
+            li {
+              &::before {
+                content: "\f0da";
+                margin-right: 10px;
+                font: normal 1.8rem/1 "fontawesome";
+                color: $main-green-color;
+              }
+              b {
+                color: $main-dark-gray;
+                font: 700 1.8rem/1 "Noto Sans KR", sans-serif;
+              }
+            }
+          }
+          .hashtag {
+            @include hashtag;
+            margin: 20px 0 40px;
+          }
+          .view_project {
+            background: $main-dark-gray;
+            color: $main-light-bg;
+            padding: 10px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            font: 600 1.6rem/1 "Ubuntu", sans-serif;
+            letter-spacing: 1px;
+            &:hover {
+              background: $main-orange-color;
+            }
+          }
+        }
+        &.project_photo {
+          width: calc(100% - 500px);
+          height: 75%;
+          .slick-list {
+            height: 100%;
+            .slick-track {
+              height: 100%;
+              .slick-slide {
+                height: 100%;
+                div {
+                  height: 100%;
+                  img {
+                    object-fit: cover;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .btn {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 25%;
+    text-align: center;
+    cursor: default;
+    label {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: $main-dark-gray;
+      border-radius: 50%;
+      margin: 8px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        display: inline-block;
+        transition: all 0.3s;
+      }
+      &:hover {
+        background: $main-green-color;
+        &::before {
+          border: 1px solid $main-light-gray;
+        }
+      }
+    }
+  }
+  .message {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    span {
+      font: 400 4rem/1 "hyundainormal", sans-serif;
+      text-transform: capitalize;
+      letter-spacing: 3px;
+      color: $main-light-gray;
+    }
+  }
+}
+
+// news
+.news_inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(
+    to top,
+    lightgrey 0%,
+    lightgrey 1%,
+    #e0e0e0 26%,
+    #efefef 48%,
+    #d9d9d9 75%,
+    #bcbcbc 100%
+  );
+  h3 {
+    font: 500 3.6rem/1 "hyundainormal", sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $main-light-bg;
+    text-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+    span {
+      font: 900 3.8rem/1 "arial", sans-serif;
+    }
+  }
+  .news_items {
+    height: 78%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(350px, 1fr));
+    gap: 20px;
+    li {
+      width: 350px;
+      height: 400px;
+      background: $main-light-bg;
+      box-shadow: 0 0 20px rgba($color: #000000, $alpha: 0.2);
+      cursor: pointer;
+      transition: all 0.5s;
+      overflow: hidden;
+      .news_img {
+        height: 60%;
+        overflow: hidden;
+        img {
+          object-fit: cover;
+          transition: all 0.5s;
+        }
+      }
+      .news_info {
+        height: 40%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title {
+          font: 300 2.2rem/1.2 "Noto Sans KR", sans-serif;
+          height: 53px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+        .hashtag {
+          @include hashtag;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+          height: 24px;
+          overflow: hidden;
+        }
+        .date {
+          text-align: end;
+          color: $main-dark-gray;
+          font: 300 1.8rem/1 "Ubuntu", sans-serif;
+        }
+      }
+      &:hover {
+        box-shadow: 0 0 30px rgba($color: #000000, $alpha: 0.4);
+        .news_img {
+          img {
+            transform: scale(1.03);
+          }
+        }
+      }
+      &:nth-child(2) {
+        transform: translateY(-10%);
+      }
+      &:nth-child(5) {
+        transform: translateY(-10%);
+      }
+    }
+  }
+  .news_detail {
+    width: 90vw;
+    min-width: 1200px;
+    height: 80vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    padding: 40px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.6s;
+    z-index: 1;
+    background: $main-light-bg;
+    .detail_wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      .detail_left {
+        flex: 2;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        .detail_img {
+          width: 100%;
+          img {
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 20px;
+          }
+          .hashtag {
+            @include hashtag;
+            justify-content: center;
+            gap: 10px;
+          }
+        }
+        .closeBtn {
+          border: none;
+          width: 100%;
+          padding: 12px 0;
+          font: 500 2rem/1.2 "Noto Sans KR", sans-serif;
+          background: $main-green-color;
+          color: $main-light-bg;
+          box-shadow: 0 0 10px $main-light-gray;
+          cursor: pointer;
+          transition: all 0.3s;
+          &:hover {
+            background: $main-orange-color;
+          }
+        }
+      }
+      .detail_right {
+        flex: 3;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        .detail_heading {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .title {
+            font: 400 2.6rem/1.2 "Noto Sans KR", sans-serif;
+            text-align: center;
+            word-break: keep-all;
+          }
+          .date {
+            text-align: end;
+            color: $main-dark-gray;
+            font: 300 1.8rem/1 "Ubuntu", sans-serif;
+          }
+        }
+        .text {
+          overflow-y: auto;
+          font: 400 1.8rem/1.4 "Noto Sans KR", sans-serif;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          &::-webkit-scrollbar-thumb {
+            display: none;
+          }
+        }
+      }
+    }
+    &.active {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+.news_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 0;
+  background: rgba($color: #000000, $alpha: 0.2);
+  opacity: 0;
+  transition: all 0.6s;
+  cursor: pointer;
+  &.active {
+    opacity: 1;
+    height: 100vh;
+  }
+}
+
+// contact
+.contact_inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .contact_feature {
+    width: 70%;
+    display: flex;
+    gap: 50px;
+    & > div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      &.contact_form {
+        h3 {
+          font: 300 3rem/1 "Ubuntu", sans-serif;
+          color: $main-navy-color;
+          letter-spacing: 0;
+        }
+        p {
+          font: 500 1.8rem/1.4 "Noto Sans KR", sans-serif;
+          color: $main-dark-gray;
+        }
+        .send_box {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 20px;
+          label {
+            font: 500 1.6rem/1.4 "Noto Sans KR", sans-serif;
+            span {
+              color: crimson;
+              font-weight: normal;
+            }
+          }
+          input[type="email"],
+          input[type="text"],
+          textarea {
+            @include formStyle;
+          }
+          textarea {
+            resize: none;
+          }
+          input[type="submit"] {
+            background: $main-dark-gray;
+            color: $main-light-bg;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            margin-top: 10px;
+            width: 60%;
+            justify-content: flex-start;
+            font: 500 1.8rem/1.4 "Noto Sans KR", sans-serif;
+            transition: all 0.3s;
+            cursor: pointer;
+            &.on {
+              background: $main-green-color;
+            }
+          }
+        }
+      }
+      &.contact_info {
+        gap: 40px;
+        h4 {
+          font: 400 2rem/1 "Ubuntu", sans-serif;
+          color: $main-navy-color;
+          letter-spacing: 0;
+          margin-bottom: 10px;
+        }
+        ul {
+          li {
+            margin: 10px 0;
+            color: $main-dark-gray;
+          }
+        }
+        p {
+          margin: 10px 0;
+          color: $main-dark-gray;
+          .fa-regular {
+            margin-right: 6px;
+          }
+        }
+        em {
+          font: normal 400 1.4rem/1 "Ubuntu", sans-serif;
+          letter-spacing: 0;
+          color: $main-dark-gray;
+          span {
+            color: $main-green-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+//modal
+.modal {
+  .header {
+    position: fixed;
+    width: 100%;
+    background: $main-light-bg;
+    z-index: 100;
+    border-bottom: 1px solid $main-light-gray;
+    .header-inner {
+      width: 95%;
+      height: 90px;
+      margin: 0 auto;
+      line-height: 90px;
+      .modal-display {
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        &::before {
+          content: "";
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: $main-light-gray;
+        }
+      }
+    }
+  }
+  .hiring-main {
+    height: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &.project-main1 {
+      background: url("./images/project01-main.jpg") center/cover no-repeat;
+      height: 100vh;
+    }
+    &.project-main2 {
+      background: url("./images/project02-main.jpg") center/cover no-repeat;
+      height: 100vh;
+    }
+    &.project-main3 {
+      background: url("./images/project03-sub01.jpg") center/cover no-repeat;
+      height: 100vh;
+    }
+    .hiring-heading {
+      color: $main-light-bg;
+      span {
+        font: 600 2rem/1 "Ubuntu", sans-serif;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px $main-dark-gray;
+      }
+      h1 {
+        font: 200 4rem/1.5 "hyundainormal", sans-serif;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px $main-dark-gray;
+      }
+    }
+  }
+  .hiring-info {
+    display: flex;
+    & > div {
+      flex: 1;
+      height: 500px;
+      &.center-parent {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .center-child {
+          width: 70%;
+          h2 {
+            font: 200 3rem/1.5 "Noto Sans KR", sans-serif;
+            position: relative;
+            margin-bottom: 20px;
+            &::before {
+              content: "\f0da";
+              font: normal 3.8rem/1 "fontawesome";
+              position: absolute;
+              top: -15px;
+              left: -15px;
+              color: $main-orange-color;
+              transform: rotate(-90deg);
+            }
+            &::after {
+              content: "\f0da";
+              font: normal 3.8rem/1 "fontawesome";
+              position: absolute;
+              top: -15px;
+              left: -10px;
+              color: $main-green-color;
+              transform: rotate(-90deg);
+            }
+          }
+          p {
+            font: 400 1.6rem/1.8 "Noto Sans KR", sans-serif;
+            word-break: keep-all;
+          }
+        }
+      }
+      &.photo {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        &.project-info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 40px;
+          ul {
+            li {
+              font: 200 2rem/1.5 "Noto Sans KR", sans-serif;
+              margin: 10px 0;
+              &::before {
+                content: "\f0da";
+                margin-right: 10px;
+                font: normal 2rem/1 "fontawesome";
+                color: $main-light-gray;
+              }
+              b {
+                color: $main-dark-gray;
+                font: 400 2rem/1 "Noto Sans KR", sans-serif;
+                letter-spacing: 2px;
+              }
+            }
+          }
+          .hashtag {
+            @include hashtag;
+            span {
+              font: 500 2.2rem/1 "Noto Sans KR", sans-serif;
+              color: $main-light-gray;
+            }
+          }
+        }
+      }
+    }
+  }
+  .hiring-info:nth-of-type(3) {
+    flex-direction: row-reverse;
+    .center-parent {
+      .center-child {
+        p {
+          text-align: end;
+        }
+      }
+    }
+  }
+  .hiring-slogan {
+    padding: 120px 0;
+    p {
+      width: 70%;
+      text-align: center;
+      margin: 0 auto;
+      position: relative;
+      font: italic 300 3.2rem/1.5 "Ubuntu", sans-serif;
+      letter-spacing: 2px;
+      color: $main-light-gray;
+      word-break: keep-all;
+      &::before {
+        content: ",,";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-100%, -40%) rotate(180deg);
+        font-size: 200px;
+        color: $main-light-gray;
+        z-index: 0;
+        font-family: "arial";
+        letter-spacing: -10px;
+      }
+      &::after {
+        content: ",,";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(100%, 40%) rotate(-360deg);
+        font-size: 200px;
+        color: $main-light-gray;
+        z-index: 0;
+        font-family: "arial";
+        letter-spacing: -10px;
+      }
+    }
+  }
+}
+
+//featherlight
+.featherlight {
+  .featherlight-content {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    max-height: 100%;
+    .featherlight-close-icon {
+      top: 30px;
+      right: 60px;
+      font-size: 40px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      color: $main-dark-gray;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
